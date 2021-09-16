@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<br/>
+<br/>
+<br/>
+<body>
+
+<center>
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+
+        <div class="card-header">Detalles de conexion</div>
+
+        <div class="card-body">
+            <h5 class="card-title"> Id Connexion: {{connex.id}} </h5>
+            <h5 class="card-title"> IP Connexion: {{connex.ip}} </h5>
+            <h5 class="card-title"> User Connexion: {{connex.user}} </h5>
+            <h5 class="card-title"> PWD Connexion: {{connex.pwd}}</h5>
+            <h5 class="card-title"> Db_Type Connexion: {{connex.db_type}} </h5>
+            <h5 class="card-title"> Db_Name Connexion: {{connex.db_name}} </h5>
+            <h5 class="card-title"> Active Connexion: {{connex.active}} </h5>
+
+
+        </div>
+
+    </div>
+    <a href="{% url 'Index' %}">
+        <button type="button" class="btn btn-secondary"><i class="bi bi-arrow-bar-left"></i>Volver al Index</button>
+    </a>
+</center>
+
+
+</body>
+</html>

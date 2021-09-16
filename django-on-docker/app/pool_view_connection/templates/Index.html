@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+<body>
+
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href="Add_connex">Add Connection</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="Sync">Sync Management</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+    </li>
+</ul>
+
+<center>
+
+
+    <h1> Sistema de conexiones de bases de datos </h1>
+    <br/>
+    <br/>
+
+    <div>
+        <h5>
+            <del> Numero de Conexiones: {{no_conex}}</del>
+        </h5>
+
+    </div>
+    <br/>
+    <br/>
+
+    <div class="container">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">IP</th>
+                <th scope="col">USER</th>
+                <th scope="col">PWD</th>
+                <th scope="col">Puerto</th>
+                <th scope="col">DB_TYPE</th>
+                <th scope="col">DB_NAME</th>
+                <th scope="col">ACTIVE</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for element in connex %}
+            <tr>
+                <td>{{element.id}}</td>
+                <th scope="row"> {{element.ip}}</th>
+                <td>{{element.user}}</td>
+                <td>{{element.pwd}}</td>
+                <td>{{element.puerto}}</td>
+                <td>{{element.db_type}}</td>
+                <td>{{element.db_name}}</td>
+                <td> {{element.active}}</td>
+                <td>
+                    <a href="details_connex/{{element.id}}" class="btn btn-info"> <i class="bi bi-binoculars"> </i>
+                        Details </a>
+                    <a href="edit_connex/{{element.id}}" class="btn btn-secondary"> <i class="bi bi-pencil-square"> </i>
+                        Edit </a>
+                    <a href="delet_connex/{{element.id}}" class="btn btn-danger"> <i class="bi bi-trash"> </i>
+                        Delete
+                    </a>
+                    <a href="test_connection/{{element.id}}" class="btn btn-light"> <i
+                            class="bi bi-bar-chart-steps"></i>
+                        test_Connection
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if messages %}
+        {% for msg in messages %}
+        <b>{{msg}}</b>
+        {% endfor %}
+        {% endif %}
+    </div>
+</center>
+</body>
+</html>

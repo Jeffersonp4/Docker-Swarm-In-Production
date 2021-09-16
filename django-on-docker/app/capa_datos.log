@@ -1,0 +1,15 @@
+10:20:56 AM: DEBUG [cursor_of_pool.py:11] Inicio del metodo with __enter__
+10:20:56 AM: DEBUG [cursor_of_pool.py:30] Dentro del bloque with
+10:20:56 AM: DEBUG [cursor_of_pool.py:32] []
+10:20:56 AM: DEBUG [cursor_of_pool.py:17] Se ejecuta metodo __exit__
+10:20:56 AM: DEBUG [cursor_of_pool.py:23] Commit de la transaccion
+10:22:05 AM: DEBUG [cursor_of_pool.py:11] Inicio del metodo with __enter__
+10:22:05 AM: DEBUG [cursor_of_pool.py:30] Dentro del bloque with
+10:22:05 AM: DEBUG [cursor_of_pool.py:32] [(1, 'Juan', 'Payano', 54), (2, 'Jefferson', 'Payano', 20)]
+10:22:05 AM: DEBUG [cursor_of_pool.py:17] Se ejecuta metodo __exit__
+10:22:05 AM: DEBUG [cursor_of_pool.py:23] Commit de la transaccion
+10:22:22 AM: DEBUG [cursor_of_pool.py:11] Inicio del metodo with __enter__
+10:22:22 AM: DEBUG [cursor_of_pool.py:30] Dentro del bloque with
+10:22:22 AM: DEBUG [cursor_of_pool.py:32] [(1, 'Juan', 'Payano', 54), (2, 'Jefferson', 'Payano', 20)]
+10:22:22 AM: DEBUG [cursor_of_pool.py:17] Se ejecuta metodo __exit__
+10:22:22 AM: DEBUG [cursor_of_pool.py:23] Commit de la transaccion

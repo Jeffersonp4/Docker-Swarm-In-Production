@@ -1,0 +1,84 @@
+version: '3.9'
+
+services:
+  web:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - .env.dev
+
+  # ip_Address:172.26.0.2
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .enviroment/enviroment.env
+    ports:
+      - "5432:5432"
+
+  dbeaver:
+    image: dbeaver/cloudbeaver
+    restart: always
+    volumes:
+      - dbeaver_data:/opt/cloudbeaver/workspace
+    ports:
+      - "8978:8978"
+
+  pg_admin:
+    image: dpage/pgadmin4
+    env_file:
+      - .enviroment/enviroment.env
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "5050:80"
+
+  # IPAddress:172.26.0.6
+  db_mysql:
+    image: mysql:5.7
+    env_file:
+      - .enviroment/enviroment.env
+    hostname: vipmysql
+    deploy:
+      mode: replicated
+      replicas: 1
+    ports:
+      - "6033:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  # IPAddress:172.26.0.4
+  db_server:
+    image: "mcr.microsoft.com/mssql/server"
+    env_file:
+      - .enviroment/enviroment.env
+    ports:
+      - "1433:1433"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db_mysql
+    env_file:
+      - .enviroment/enviroment.env
+    restart: always
+
+    deploy:
+      mode: replicated
+      replicas: 1
+
+    ports:
+      - "8081:80"
+
+
+volumes:
+  postgres_data:
+  dbdata:
+  dbeaver_data:
