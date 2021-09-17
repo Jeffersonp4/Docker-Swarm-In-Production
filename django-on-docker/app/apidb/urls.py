@@ -1,6 +1,7 @@
 from django.urls import path
-from apidb.api import ConexAPIView
+from apidb.api import conex_api_view,fiel_connex_detail_view
 
 urlpatterns = [
-    path('conexiones/', ConexAPIView.as_view(), name = 'conexion_api')
+    path('conexiones/', conex_api_view, name = 'conexion_api'),
+    path('conexiones/<int:pk>/',fiel_connex_detail_view, name = 'conex_detail_api_view')
 ]
