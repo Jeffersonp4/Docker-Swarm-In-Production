@@ -29,17 +29,16 @@
 
     <select class="form-select-sm" aria-label="Default select example">
         <option selected> Select Database</option>
-        {% for element in peticion %}
-        <option value="1">{{element.db_name}} of {{element.db_type}} </option>
+        {% for element in db_name %}
+        <option value="1"> {{element.db_name}} of {{element.db_type}} </option>
+        <br>
         <a href="select_table/{{element.id}}" class="btn btn-info"> <i class="bi bi-binoculars"></i> show table </a>
-        br
         {% endfor %}
-    </select>
-    <a href="select_table/{{element.id}}" class="btn btn-info"> <i class="bi bi-binoculars"></i> show table </a>
 
+    </select>
     <select class="form-select-sm" aria-label="Default select example">
         <option selected> Select Database</option>
-        {% for element in peticion %}
+        {% for element in db_name %}
         <option value="1">{{element.db_name}} of {{element.db_type}}</option>
         {% endfor %}
     </select>

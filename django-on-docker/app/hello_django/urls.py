@@ -20,26 +20,32 @@ from django.conf.urls.static import static
 
 from Sync_Management.views import show_database, select_table
 from apidb import views
-from class_field.views import details_conex, Add_connex, edit_conex, delet_connex, test_connection
-from pool_view_connection.views import bienvenido
+from class_field.views import details_conex, Add_connex, edit_conex, delet_connex, test_connection, AddTable, EdiTable, \
+    DeleteTable
+from pool_view_connection.views import bienvenido, menu, ViewTable
 from upload.views import image_upload
 
-
-#router = routers.DefaultRouter()
-#router.register(r'conexs_pool_field', views.conexs_pool_fieldViewSet)
+# router = routers.DefaultRouter()
+# router.register(r'conexs_pool_field', views.conexs_pool_fieldViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path("", image_upload, name="upload"),
-    path("", bienvenido, name='Index'),
+    # path("", image_upload, name="upload"),
+    path("", menu, name='IndexGeneral'),
+    path("Index", bienvenido, name='Index'),
+    path("IndexTable",ViewTable, name='IndexTable'),
     path('details_connex/<int:id>', details_conex),
-    path('Add_connex', Add_connex ),
+    path('Add_connex', Add_connex),
+    path('Add_Table', AddTable),
     path('edit_connex/<int:id>', edit_conex),
-    path('delet_connex/<int:id>',delet_connex),
-    path('Sync', show_database),
+    path('editTable/<int:id>',EdiTable),
+    path('DeleteTable/<int:id>', DeleteTable),
+    path('delet_connex/<int:id>', delet_connex),
+    path('Sync', show_database, name='Sync'),
     path('select_table/<int:id>', select_table),
     path('test_connection/<int:id>', test_connection),
-    path('conexiones/', include('apidb.urls'))
+    path('conexiones/', include('apidb.urls')),
+    path('tableView/', include('apidb.urls'))
 
 ]
 

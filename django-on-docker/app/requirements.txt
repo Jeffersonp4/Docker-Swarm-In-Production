@@ -5,3 +5,4 @@ gunicorn==20.1.0
 psycopg2
 mysql-connector
 pyodbc==4.0.28
+requests

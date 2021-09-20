@@ -1,4 +1,5 @@
 import psycopg2
+import requests
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db import connection
 from django.contrib import messages
@@ -10,8 +11,16 @@ def show_database(request):
     #url = "http://localhost:8000/conexiones/conexiones/"
     #response = urllib.urlopen(url)
     #data = json.loads(response.read())
-    peticion = conexs_pool_field.objects.all()
-    return render(request, "Sync.html",{'peticion':peticion})
+    #peticion = conexs_pool_field.objects.all()
+    #return render(request, "Sync.html",{'peticion':peticion})
+
+    response = requests.get('http://localhost:8000/conexiones/conexiones/')
+    datos_all = response.json()
+    db_name = datos_all
+
+    return render(request, "Sync.html",{"db_name":db_name})
+ #for element in db_name:
+
 
 
 def select_table(request,id):
@@ -26,7 +35,7 @@ def select_table(request,id):
                 port=connex.puerto
             )
             messages.success(request, f'La Conexion Se registro correctamente: {conn}')
-            return redirect('Sync.html')
+            return redirect('Sync')
 
 
 def perfomSync(request):

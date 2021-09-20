@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+</head>
+<body>
+<center>
+
+
+    <h1> Sistema de conexiones de bases de datos </h1>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="container">
+
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Index">
+                    <img src="https://i.ytimg.com/vi/Nt9gfoM7UJQ/maxresdefault.jpg" alt="" width="100" height="94"
+                         class="d-inline-block align-text-top"> Connections</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="IndexTable">
+                    <img src="https://dev.mysql.com/doc/connector-odbc/en/images/myaccess-linked-table-manager.png" alt="" width="100" height="94"
+                         class="d-inline-block align-text-top"> TablesDb Connections</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="IndexField">
+                    <img src="http://sfmagazine.com/wp-content/uploads/2016/12/01_2017_access_figure1.jpg" alt="" width="100" height="94"
+                         class="d-inline-block align-text-top"> Fields Tables</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="IndexField">
+                    <img src="https://support.content.office.net/en-us/media/98dfd6b0-3f28-4e2c-96b8-842de9515363.png" alt="" width="120" height="60"
+                         class="d-inline-block align-text-top"> Connection Between DB</a>
+            </li>
+        </ul>
+
+        {% if messages %}
+        {% for msg in messages %}
+        <b>{{msg}}</b>
+        {% endfor %}
+        {% endif %}
+    </div>
+</center>
+</body>
+</html>

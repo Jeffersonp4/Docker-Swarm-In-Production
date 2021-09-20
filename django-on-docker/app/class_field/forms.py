@@ -3,7 +3,9 @@ from psycopg2 import pool
 from django.forms import ModelForm, PasswordInput
 import logging
 
-from class_field.models import conexs_pool_field
+from class_field.models import conexs_pool_field, RelationshipBetweenTableConnections
+
+
 class connex_Form(ModelForm):
 
     class Meta:
@@ -13,3 +15,10 @@ class connex_Form(ModelForm):
 
             'pwd': PasswordInput(attrs={'type': 'password'})
         }
+
+
+class TableForm(ModelForm):
+
+    class Meta:
+        model = RelationshipBetweenTableConnections
+        fields = '__all__'
