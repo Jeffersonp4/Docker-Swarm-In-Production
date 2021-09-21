@@ -30,11 +30,11 @@ class conexs_pool_field(models.Model):
 
 class RelationshipBetweenTableConnections(models.Model):
     table = models.CharField(max_length=255)
-    conexs_pool_id = models.ForeignKey(conexs_pool_field, on_delete=models.CASCADE)
+    conexs_pool_id = models.ForeignKey(conexs_pool_field, on_delete=models.SET_NULL, null=True)
 
 class RelationshipBetweenTables(models.Model):
     fields = models.CharField(max_length=8000)
-    table_id = models.ForeignKey(RelationshipBetweenTableConnections, on_delete=models.CASCADE)
+    table_id = models.ForeignKey(RelationshipBetweenTableConnections, on_delete=models.SET_NULL, null=True)
 
 
 class RelationshipBetweenConnections(models.Model):
@@ -44,11 +44,11 @@ class RelationshipBetweenConnections(models.Model):
 
 class LinkBetweenTable(models.Model):
     tables = models.CharField(max_length=8000)
-    link_connection = models.ForeignKey(RelationshipBetweenConnections, on_delete=models.CASCADE)
+    link_connection = models.ForeignKey(RelationshipBetweenConnections, on_delete=models.SET_NULL, null=True)
 
 class LinkBetweenField(models.Model):
     Sync_type = models.CharField(max_length=255)
-    relation_table = models.ForeignKey(LinkBetweenTable, on_delete=models.CASCADE)
+    relation_table = models.ForeignKey(LinkBetweenTable, on_delete=models.SET_NULL, null=True)
 
 
 

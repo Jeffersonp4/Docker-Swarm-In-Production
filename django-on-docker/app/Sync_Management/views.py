@@ -4,7 +4,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.db import connection
 from django.contrib import messages
 # Create your views here.
-from class_field.models import conexs_pool_field
+from class_field.models import conexs_pool_field ,RelationshipBetweenTableConnections
+from class_field.forms import RelationTable
 import urllib, json
 
 def show_database(request):
@@ -14,11 +15,14 @@ def show_database(request):
     #peticion = conexs_pool_field.objects.all()
     #return render(request, "Sync.html",{'peticion':peticion})
 
-    response = requests.get('http://localhost:8000/conexiones/conexiones/')
-    datos_all = response.json()
-    db_name = datos_all
 
-    return render(request, "Sync.html",{"db_name":db_name})
+    #response = requests.get('http://localhost:8000/tableView/tableView')
+    #datos_all = response.json()
+    #db_name = datos_all
+    conex_obj = RelationTable
+    table_obj = RelationshipBetweenTableConnections.objects.order_by('id')
+
+    return render(request,"Sync.html",{"conex_obj":conex_obj, "table_obj":table_obj})
  #for element in db_name:
 
 

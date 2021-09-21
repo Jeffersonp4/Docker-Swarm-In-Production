@@ -11,7 +11,7 @@ services:
     env_file:
       - .env.dev
 
-  # ip_Address:192.168.48.6
+  # ip_Address:192.168.96.4
   db:
     image: postgres:13.0-alpine
     volumes:
@@ -40,7 +40,7 @@ services:
     ports:
       - "5050:80"
 
-  # IPAddress:192.168.48.4
+  # IPAddress:192.168.96.3
   db_mysql:
     image: mysql:5.7
     env_file:
@@ -54,7 +54,7 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
-  # IPAddress:192.168.48.3
+  # IPAddress:192.168.96.6
   db_server:
     image: "mcr.microsoft.com/mssql/server"
     env_file:
